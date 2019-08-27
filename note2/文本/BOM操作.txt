@@ -1,0 +1,64 @@
+BOM
+window
+navigator
+screen
+history
+location
+document  dom
+
+
+alert()提示框
+confirm()带取消按钮的提示框
+prompt()带输入功能的提示框
+setInterval()循环执行
+clearInterval()停止循环执行
+setTimeout()延迟执行
+clearTimeout()停止延迟执行
+
+navigator.userAgent  检测浏览器特性
+
+screen.availHeight  有效的高度  860
+screen.availWidth  1600
+screen.height 900
+screen.width  1600
+
+history.go(-1);返回上一页
+
+
+location   地址栏
+location.hash  读取锚点
+
+location.host域名
+location.href整个域名地址
+
+location.href='http://www.baidu.com';//页面跳转
+
+location.pathname文件位置
+location.protocol协议
+location.search地址栏参数
+
+
+
+location.reload()重新加载
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+超链接锚点:一个页面里面的跳转
+<a href="#a1">12313</a>-----------<div id="a1"></div>
+<a href="#a2">12313</a>-----------<a name="a2"></a>

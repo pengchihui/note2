@@ -1,0 +1,38 @@
+ajax validate 表单验证提交代码
+    Uncaught SyntaxError: Unexpected token v in JSON at position 0
+ 
+常见产生原因
+    php显示数据时 json在发明之初就是不提倡注释的
+    json注释也是 “key”：”value“	
+	JSON.parse(str)  语法非常的严格
+    非数字型键值没有双引号
+	json存在像t这样的制表符
+
+json数据的检测
+    http://www.bejson.com/
+	 
+ 
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

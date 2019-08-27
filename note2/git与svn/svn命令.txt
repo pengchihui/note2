@@ -1,0 +1,66 @@
+为什么使用svn
+
+假如你是一个项目经理，手下有很多人，每个人都要有事情做，不能闲着得分配不同的内容给不同程度的哥们
+不同内容，给与与之不相同的权利，分配到不同的组里。角色分配好了，当然每天的工作得备份，如果不备份，哪万一丢失了就没有了
+丢了也没事，因为svn里有个值得关注的地方，代码还原，像时光机一样。然而协同开发进程中，对于一个新手来会遇到修改一个文件的。
+当然开发久了，新的版本也会越多，方便多版本管理。有新手写了很多的bug，改不了得时候，用他之前的版本能很好的解决。
+
+svn  apache Subversion的缩写,一个开源代码的版本控制系统。
+
+单个版本库
+svnadmin create D:\peng\svn\project
+
+启动svn服务  版本库根目录
+svnserve -d -r  D:\peng\svn\project
+
+多版本库服务
+sc create svnservice binpath= "D:\peng\svn\servers\bin\svnserve.exe --service -r D:\peng\svn\project" start=auto depend=Tcpip
+
+检测
+netstat -ano|findstr 3690
+tasklist | findstr 5448
+
+sc delete  删除服务
+sc stop    停止服务
+sc start   启动服务
+
+svnserve -d -r D:/peng/svn/project
+URL：svn://192.168.0.1/
+
+auth  权限
+passwd 用户
+
+【代码还原】
+
+history中  选个版本 右键获取内容
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

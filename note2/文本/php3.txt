@@ -1,0 +1,140 @@
+﻿打开文件
+$fh = fopen("test.txt", "r");
+
+关闭文件
+fclose($fh);
+
+fread()函数从handle指定的资源中读取length个字符,当到达EOF或读取到length个字符时读取将停止。
+如果要读取整个文件，使用filesize()函数确定应该读取的字符数;
+例：$file = "test.txt";
+$fh = fopen( $file, "r");
+$str = fread($fh, filesize($file));
+echo $str;
+fclose($fh);
+
+
+
+
+r	打开文件为只读。文件指针在文件的开头开始。
+w	打开文件为只写。删除文件的内容或创建一个新的文件，如果它不存在。文件指针在文件的开头开始。
+a	打开文件为只写。文件中的现有数据会被保留。文件指针在文件结尾开始。创建新的文件，如果文件不存在。
+x	创建新文件为只写。返回 FALSE 和错误，如果文件已存在。
+r+	打开文件为读/写、文件指针在文件开头开始。
+w+	打开文件为读/写。删除文件内容或创建新文件，如果它不存在。文件指针在文件开头开始。
+a+	打开文件为读/写。文件中已有的数据会被保留。文件指针在文件结尾开始。创建新文件，如果它不存在。
+x+	创建新文件为读/写。返回 FALSE 和错误，如果文件已存在。
+
+
+
+
+
+
+
+fgets($fh);
+
+例：逐行读取文件
+$handle = fopen("data.txt", "r");
+while(!feof($handle)){
+$content = fgets($handle);
+$content= iconv('gbk','utf-8',$content);
+echo $content."<br />";
+5
+}
+fclose($handle);
+
+
+file()函数将文件读取到数组中，各元素由换行符分隔。
+例：
+$arr = file("test.txt");
+print_r($arr);
+
+
+
+
+fwrite()函数将string的内容写入到由handle指定的资源中。如果指定length参
+数，将在写入Length个字符时停止。
+例：
+$str = "test text";
+$fh = fopen("test.txt", "a");
+fwrite($fh, $str);
+fclose($fh);
+
+
+
+
+file_put_contents()函数将一个字符串写入文件，与依次调用
+fopen(),fwrite(),fclose()功能一样;
+例：
+$str = "hello";
+file_put_contents("test.txt", $str);
+
+
+
+
+
+
+其他操作
+1.copy()
+bool copy ( string source, string dest )
+将文件从 source 拷贝到 dest。如果成功则返回 TRUE，失败则返回 FALSE。
+例：Copy("test.txt", "test.txt.bak");
+2.rename()
+bool rename ( string oldname, string newname )
+尝试把 oldname 重命名为 newname。 如果成功则返回 TRUE，失败则返回
+FALSE。
+例：rename("test.txt", "test2.txt");
+
+3.unlink()
+bool unlink ( string filename )
+删除文件，如果删除成功返回true, 否则返回false;
+例1：删除一个文本文件
+unlink("test.txt");
+例2：删除一个图片文件
+unlink("img.jpg");
+7
+
+3.2.3. 判断文件是否存在
+file_exists() 检查文件或目录是否存在，如果存在返回true, 否则返回false;
+判断是否是个文件：
+is_file("txt.txt")
+
+
+
+opendir()
+打开目录
+closedir()
+关闭目录
+
+
+readdir()
+string readdir ( resource dir_handle )
+返回由dir_handle指定目录中的各个元素。可以使用此函数列出给定目录中的所
+有文件和子目录
+$dh = opendir(".");
+While($file = readdir($dh)){
+echo $file."<br />";
+}
+closedir($dh);
+
+
+
+scandir()
+array scandir ( string directory [, int sorting_order [, resource context]] )
+返回一个包含有 directory 中的文件和目录的数组;
+
+
+
+rmdir()
+bool rmdir ( string dirname )
+删除目录
+注:删除文件夹时需要保证文件夹是空的，即里面没有任何文件，如果有则删除失败
+
+mkdir()
+bool mkdir ( string pathname [, int mode [, bool recursive [, resource context]]] )
+尝试新建一个由 pathname 指定的目录。
+
+
+
+
+
+

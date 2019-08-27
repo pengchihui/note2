@@ -1,0 +1,89 @@
+﻿//node的数据库mongodb
+https://www.mongodb.com/download-center/community
+官网下载
+项目文件也要安装 npm install mongodb
+安装好后进入bin目录，cmd进入命令提示工具（bin文件夹）
+启动服务
+执行mongod （盘符根目录下面必须要一个data/db和data/log文件夹，用来放数据和日志的）
+改变数据存储路径怎么办？
+mongod --dbpath "C:\Users\Administrator\Desktop\test\data\db" --logpath "C:\Users\Administrator\Desktop\test\data\log\mongodb.log" --logappend
+--logappend  日志文件以追加的形式添加
+
+
+
+
+
+
+不要关闭这个窗口，
+重新打开一个输入mongo启动数据库
+命令无效（计算机--属性---高级系统设置--高级---环境变量---path里面加入bin文件夹的路劲）
+
+show dbs 展示数据库
+use xxx 使用哪一个数据库
+db  展示你正在使用的数据库
+
+db.xxx.insert({x:10,y:20}) 往数据库里面插入数据
+db.xxx.find()  显示数据
+
+
+
+插入固定集合：(类似mysql数据库的表  capped:true固定集合  size:100000集合大小   max:100文档数量)
+db.createCollection("xxx",{capped:true,size:100000,max:100})
+展示集合：
+show collections
+
+
+删除数据库
+use xxx
+db.dropDatabase()
+
+删除集合
+db.xxx.drop()
+
+
+往集合里面添加文档
+db.xxx.insert({x:30,y:40})
+
+
+集合里面更改文档(更改一整条)
+db.xxx.update({x:30},{x:40,y:50})
+
+
+集合里面更改文档(只能更改对应项目)
+db.xxx.update({x:30},{$set:{x:40}})
+
+
+
+整体保存替换文档
+db.xxx.save()
+
+
+
+
+
+删除文档(需要在当前的数据里面有这个东西)
+db.xxx.remove({x:30})
+//admin<--xxx
+//test里面没有xxx则删除不成功 
+
+
+
+
+
+
+查找文档（多条查询）
+db.xxx.find()  查找所有
+db.xxx.find({x:30})  查找指定条件的那几条
+db.xxx.find({x:{$lt:40}})  小于查询
+db.xxx.find({x:{$gt:20}})  大于查询
+db.xxx.find({x:{$gte:20}})  大于等于查询
+db.xxx.find({x:30,y:30})      并且查询
+或者查询
+db.xxx.find({$or:[
+	{x:{$gt:20}},
+	{x:{$lt:0}}
+]})
+查询x>20或者x<0的结果
+
+查询单个数据
+db.xxx.findOne({x:30})

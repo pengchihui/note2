@@ -1,0 +1,222 @@
+﻿git init
+
+git config --global user.name ming
+git config --global user.email ming@k.com
+
+git status 状态查看 工作去 暂存区
+git add peng.text 添加到暂存区
+git add -A
+git rm --cached peng.text 移除暂存区
+git commit -m "消息" peng.text 提交到本地库
+
+git log --oneline 过去版本
+git log reflog 过去现在
+git reset --hard jijse89 后退指定版本
+git reset --hard HEAD^^^ 后退几个
+git reset --hard HEAD~3 后退三步
+
+工作区与本地历史对比
+git diff HEAD ming.text
+
+git branch -v  查看
+git branch kaili  创建
+git checkout kaili 切换
+
+git原理  md5加密  哈希加密
+
+chrom浏览器
+GitHub注册一个账号
+	pengchihui
+	2015430746@qq.com
+	kaiweili.9
+
+	pengchihui1
+	pengchihui@aliyun.com
+	kaiweili.9
+
+克隆下载无需登入
+git remote -v
+git remote add css https://github.com/pengchihui/csshtml.git
+git push css master
+git remote add ming https://github.com/pengchihui/mings.git
+git clone https://github.com/pengchihui/mings.git
+
+团队协作
+  某个库 搜索协作人员  协作人员同意
+  主负责人重新抓取项目 git pull li master
+  切换团队 git checkout li/master
+
+读取
+	git fetch li master  用于冲突
+	git merge li/master 
+	git pull li master
+
+拉取下来后如果进入冲突状态，则按照“分支冲突解决”操作解决
+	合并冲突
+		 删除特殊字符
+		 修改到满意程度
+		 git add 文件名
+		 git commit -m
+
+不是最新版不能推送 ，如果不是最新版
+
+win10清除已登录账号密码方法
+
+	打开控制面板(Control Panel)；
+	选择用户账户(User Accounts)；
+	选择管理你的凭据(Credential Manager)；
+	管理windows凭据(Manage Windows Credentials)；
+	删除git保存的用户信息保存即可。
+
+跨团队协作
+	点击仓库链接地址
+	链接地址中的Fork
+	克隆项目并上传到这个复制的链接中
+	pull request到原主人
+	原主人进行合并
+	
+ssh避免每次登入
+
+ssh-keygen -t rsa -C pengchihui@aliyun.com
+ssh-keygen -t rsa -C 2015430746@qq.com
+git push origin master
+eval $(ssh-agent -s) 查看启动
+clip < ~/.ssh/id_rsa.pub github配置key
+ssh -T 2015430746@qq.com
+ssh -T pengchihui@aliyun.com
+
+
+
+Eclipse自带git svn
+  项目 team>>share project>>第一个选项
+  
+  项目问号转提交
+     team  commit
+	忽略特定的配置文件 由于eclipse每个人的版本不一样
+
+文件忽略操作
+Java.gitignore
+
+＃编译的类文件
+*.class
+
+＃日志文件
+*.log
+
+＃ BlueJ的文件
+*.ctxt
+
+#Java移动工具（J2ME）
+.mtj.tmp /
+
+＃包文件＃
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*.mvn
+
+＃虚拟机崩溃日志，请参阅http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid *
+
+.classpath
+.project
+.settings
+/target/
+mvnw*
+	
+~/.gitconfig文件中引入上述文件
+注意：得用"/"，不能用"\"
+[core]
+      excludesfile = C:/Users/Administrator/Java.gitignore	
+	
+各种语言忽略文件	 
+https://github.com/github/gitignore
+
+
+推送到远程库
+克隆项目
+    导入git项目
+	转换项目  右键 Configure>Convert to Maven Project
+
+git集中式工作流
+    以中央仓库作为项目所有修改的单点实体，所有修改都提交到master这个分支上
+	
+gitflow工作流
+    gitflow工作流通过为功能开发，发布准备和维护设立了独立的分支，让发布迭代更流畅。
+    严格的分支模型为大型的项目提供了一些非常必要的结构。
+
+forking工作流
+    Forking工作流是在gitflow基础上，充分利用了git的fork和pull request的功能以达到
+	代码审核的目的。更适合安全可靠的管理大团队的开发者，而且能接受不信任贡献者的提交。
+	
+	
+gitlab安装【Centos7】
+    rpm包  https://packages.gitlab.com/gitlab/gitlab-ce
+    安装简介  https://about.gitlab.com/installation/ce-or-ee
+
+注意官网是企业版，此安装的是社区版
+
+下载上传
+vm开启快照
+
+sudo rpm -ivh /opt/gitlab-ce-11.10.6-ce.0.el7.x86_64.rpm	
+sudo yum install -y curl policycoreutils-python openssh-server cronie
+sudo lokkit-s http -s ssh
+sudo yum install postfix
+sudo service psotfix start
+sudo chkconfig postfix on
+sudo systemctl enable postfix
+sudo systemctl start postfix
+curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+sudo EXTERNAL_URL="https://gitlab.example.com" yum install -y gitlab-ce
+
+gitlab-ctl reconfigure
+titlab-ctl start
+service frewalld stop
+
+拉取他人单个文件或目录
+	指定远程仓库
+	指定克隆模式: 稀疏克隆模式
+	指定克隆的文件夹(或者文件)
+	拉取远程文件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+
+vue-cli 脚手架
+安装vue
+npm install vue
+安装脚手架
+npm install -g @vue/cli
+创建项目（需要在对应文件中创建）
+vue create xxx
+进入到对应项目目录
+cd  xxx
+运行服务
+npm run serve
+打开网址看效果（不要关闭前面的服务）
+http://localhost:8081/
+
+
+vue-cli利用node.js
+入口文件main.js--->app.vue--->index.html
+单页面应用框架
+
+
+
+
+
+项目完成后打包（创建dist目录，文件都在里面）
+npm run build
+把打包项目放入到服务器环境运行
+
+
+
+
+
+
+vue-router
+vue路由功能

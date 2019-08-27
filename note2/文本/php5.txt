@@ -1,0 +1,59 @@
+<?php
+$user=[
+	[	"name"=>"张三",	"age"=>"19",	"sex"=>"男",	"id"=>"2"],
+	[	"name"=>"李四",	"age"=>"20",	"sex"=>"男",	"id"=>"3"],
+	[	"name"=>"王五",	"age"=>"21",	"sex"=>"男",	"id"=>"4"],
+	[	"name"=>"赵六",	"age"=>"22",	"sex"=>"男",	"id"=>"5"]
+];
+var_dump($user);
+echo "数据库操作<br>";
+
+//连接数据库 (地址，用户名，密码，要连接的数据库名)
+$con=mysqli_connect("localhost","root","","test");
+//抛出错误信息
+if(!$con){
+	echo "连接错误".mysqli_connect_error();
+}else{
+	echo "连接成功";
+}
+
+// 修改配置文件my.ini,在最后加上character-set-server=utf8解决中文显示问题
+
+
+//通过php执行mysql插入语句(用循环将上面四条用户信息添加入数据库user表中)
+for($i=0;$i<count($user);$i++){
+	// $user[$i]["name"]
+	// $user[$i]["age"]
+	// $user[$i]["sex"]
+	// $user[$i]["id"]
+	$str="INSERT INTO `user`(`name`, `age`, `sex`, `id`) VALUES ('".$user[$i]["name"]."','".$user[$i]["age"]."','".$user[$i]["sex"]."','".$user[$i]["id"]."')";
+	mysqli_query($con,$str);
+}
+
+//通过php执行mysql修改语句(将user表中id=2的那条信息中的name修改成"小站三")
+$str="UPDATE `user` SET `name`='小张三' WHERE `id`='2'";
+mysqli_query($con,$str);
+
+
+//通过php执行mysql查询语句(查询user表中id=2的那条信息中的name,age,sex,id数据)
+$str="SELECT `name`, `age`, `sex`, `id` FROM `user` WHERE `id`='2'";
+$sql=mysqli_query($con,$str);
+var_dump($sql);
+
+//把mysql的查询结果转换成php结构
+$arr=mysqli_fetch_assoc($sql);
+var_dump($arr);
+
+//释放查询结果的内存
+mysqli_free_result($sql);
+
+
+//通过php执行mysql删除语句(删除user表的所有数据)
+$str="DELETE FROM `user` WHERE 1";
+mysqli_query($con,$str);
+
+
+//关闭连接
+mysqli_close($con);
+
+?>
