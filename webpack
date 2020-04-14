@@ -1,1 +1,3 @@
-xcd
+Webpack4.x创建项目
+   npm init -y         初始化项目
+   cnpm i webpack-cli -D   安装webpack(-g全局安装)
